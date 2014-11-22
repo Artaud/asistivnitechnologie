@@ -1,4 +1,5 @@
 ActiveAdmin.register Item do
+  permit_params :name, :description, :iso_9999_v2011_category, :solves_problem, :associated_diagnosis, :seller
 
 
   # See permitted parameters documentation:
