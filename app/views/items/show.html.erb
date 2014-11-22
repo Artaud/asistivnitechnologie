@@ -1,34 +1,34 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Item -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Item %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @item.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @item.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:iso_9999_v2011_category) %></dt>
+      <dd><pre class="prettyprint"><%= @item.iso_9999_v2011_category %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:solves_problem) %></dt>
+      <dd><pre class="prettyprint"><%= @item.solves_problem %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:associated_diagnosis) %></dt>
+      <dd><pre class="prettyprint"><%= @item.associated_diagnosis %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:seller) %></dt>
+      <dd><pre class="prettyprint"><%= @item.seller %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              items_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_item_path(@item), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              item_path(@item),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Iso 9999 v2011 category:</strong>
-  <%= @item.iso_9999_v2011_category %>
-</p>
-
-<p>
-  <strong>Solves problem:</strong>
-  <%= @item.solves_problem %>
-</p>
-
-<p>
-  <strong>Associated diagnosis:</strong>
-  <%= @item.associated_diagnosis %>
-</p>
-
-<p>
-  <strong>Seller:</strong>
-  <%= @item.seller %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
