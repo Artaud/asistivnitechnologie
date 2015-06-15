@@ -1,0 +1,8 @@
+<div class="search-placeholder text-center">
+	<%= simple_form_for :item do |f| %>
+		<%= f.input :name, :autofocus => true, required: false, label: false %>
+		<%= f.submit (t '.search_submit', :default => 'Search'), class: 'btn btn-default' %>
+	<% end %>
+</div>
+
+
